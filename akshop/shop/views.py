@@ -30,7 +30,6 @@ class ProductListView(ListView):
 
 
     def render_to_response(self, context, **kwargs):
-        x = super().render_to_response(context, **kwargs)
         s = render_to_string(self.template_name, context, self.request) 
         paginator = context["paginator"]
         page = context["page_obj"]
