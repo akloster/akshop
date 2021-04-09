@@ -1,0 +1,59 @@
+version: '3'
+
+volumes:
+  local_mysql_data: {}
+  local_mysql_data_backups: {}
+  local_media: {}
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    image: akshop_local_django
+    container_name: akshop-django
+    depends_on:
+      - mysql
+      - mailhog
+    volumes:
+      - .:/app:z
+    env_file:
+      - ./.envs/.local/.django
+      - ./.envs/.local/.mysql
+    ports:
+      - "8000:8000"
+    command: /start
+
+  mysql:
+    image: mysql
+    container_name: akshop-mysql
+    volumes:
+      - local_mysql_data:/var/lib/mysql
+      - local_mysql_data_backups:/backups
+      - local_media:/media
+    env_file:
+      - ./.envs/.local/.mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
+  mailhog:
+    image: mailhog/mailhog:v1.0.0
+    container_name: akshop-mailhog
+    ports:
+      - "8025:8025"
+
+
+  docs:
+    image: akshop_local_docs
+    container_name: docs
+    build:
+      context: .
+      dockerfile: ./compose/local/docs/Dockerfile
+    env_file:
+      - ./.envs/.local/.django
+    volumes:
+      - ./docs:/docs:z
+      - ./config:/app/config:z
+      - ./akshop:/app/akshop:z
+    ports:
+      - "7000:7000"
+    command: /start-docs
+

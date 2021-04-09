@@ -1,0 +1,8 @@
+# MySQL
+# ------------------------------------------------------------------------------
+MYSQL_HOST=mysql
+MYSQL_PORT=3306
+MYSQL_DATABASE=akshop
+MYSQL_USER=debug
+MYSQL_PASSWORD=debug
+MYSQL_ROOT_PASSWORD=debug

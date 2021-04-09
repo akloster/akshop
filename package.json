@@ -1,0 +1,52 @@
+{
+  "name": "akshop",
+  "version": "0.1.0",
+  "dependencies": {
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-typescript": "^7.13.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/plugin-transform-modules-commonjs": "^7.13.8",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "@popperjs/core": "^2.9.2",
+    "@types/react": "^17.0.3",
+    "autoprefixer": "^9.4.7",
+    "babelify": "^10.0.0",
+    "bootstrap": "4.3.1",
+    "browser-sync": "^2.14.0",
+    "browserify": "^17.0.0",
+    "commonjs": "0.0.1",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-uglify-es": "^1.0.4",
+    "jquery": "3.3.1",
+    "pixrem": "^5.0.0",
+    "popper.js": "^1.14.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "requirejs": "^2.3.6",
+    "tsify": "^5.0.2",
+    "typescript": "^4.2.3",
+    "vinyl-buffer": "^1.0.1"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp generate-assets"
+  }
+}

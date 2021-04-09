@@ -1,0 +1,12 @@
+- used django cookie-cutter template to start akshop project
+- adapted project to work with mysql in development
+- made database precheck work in runserver container
+- made mailhog work
+- created superuser admin
+- added shop app to akshop apps
+- created model, migrations and example data for products
+- added webpack/typescript/react integration
+- implemented search and pagination on home page through react
+- implemented shopping cart UI via session storage and react
+
+

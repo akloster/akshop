@@ -1,0 +1,15 @@
+{
+    "files": ["project.ts", "productlist.ts"],
+    "compileOnSave": false,
+    "compilerOptions": {
+      "noImplicitAny": false,
+      "allowSyntheticDefaultImports": true,
+      "allowJs": true,
+      "jsx": "react",
+      "target": "es5",
+      "strict": false,
+      "esModuleInterop": true,
+      "module": "commonjs",
+      "lib": ["es2015", "dom", "es5"]
+    }
+  }
