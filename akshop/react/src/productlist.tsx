@@ -13,9 +13,11 @@ function ProductListApp(){
     */
     const [page, setPage] = useState(1);
     const [terms, setTerms] = useState("");
+    const [sortBy, setSortBy] = useState("name");
     const params = new URLSearchParams()
     params.append("page", page.toString());
     params.append("terms", terms);
+    params.append("sort", sortBy);
     /* 
        Requests will be issued when query parameters change.
        Component will update when the status of the request
@@ -23,6 +25,15 @@ function ProductListApp(){
     */
     const { status, data} = useFetch("/shop/list/?"+params.toString());
 
+    window["sortOrderName"] = function(){
+        setSortBy("name");
+    }
+    window["sortOrderPrice"] = function(){
+        setSortBy("price");
+    }
+    window["sortOrderId"] = function(){
+        setSortBy("id");
+    }
     var listElement = undefined;
     if (status=="fetched") {
         listElement = <div dangerouslySetInnerHTML={{__html:data["html"]}}></div>;

@@ -23,9 +23,12 @@ class ProductListView(ListView):
         queryset = Product.objects.all()
         q = Q()
         for t in terms:
-            q |= Q(name__icontains=t, description__icontains=t)
+            q |= Q(name__icontains=t, description__icontains=t, id__icontains=t)
             queryset = queryset.filter(q)
-
+        order = str(self.request.GET.get("sort", "name"))
+        if order not in ["name", "price", "id"]:
+            order = "name"
+        queryset = queryset.order_by(order) 
         return queryset
 
 
